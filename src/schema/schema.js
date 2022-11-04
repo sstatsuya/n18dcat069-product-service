@@ -12,11 +12,23 @@ const typeDefs = gql`
     description: [String]
     splash: String
     images: [String]
+    comments: [Comment]
+  }
+
+  type Comment {
+    id: String
+    userID: String
+    productID: String
+    content: String
+    time: Int
+    product: Product
   }
 
   type Query {
     products: [Product]
     product(id: ID): Product
+    comments: [Comment]
+    comment(id: String): Comment
   }
 `;
 
